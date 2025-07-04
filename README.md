@@ -52,15 +52,97 @@ Um bom ponto de partida para a modelagem dos dados.
 
 ### 🔗 Trabalhos Relacionados
 
+#### 📝  Angelo, C. F., Fouto, N. M. M. D., & Luppe, M. R. (2010). 
+Previsão de vendas no varejo brasileiro: uma avaliação a partir de diferentes técnicas quantitativas. 
+Revista Eletrônica de Administração, Universidade Federal do Rio Grande do Sul. ISSN 1413-2311.
+
+#### 📝  Silva, G. J., & Piratelli, C. L. (s/d). 
+Previsão de vendas por séries temporais em uma empresa de nutrição para animais domésticos. Universidade de Araraquara - UNIARA.
+
 ## 🛠️ Materiais e Métodos
 
 ### 🗄️ Descrição da Base de Dados
+• A base de dados utilizada encontra-se no formato .xlsx (Microsoft Excel)  
+• Período analisado 2019 a maio de 2025  
+• Granularidade mensal  
+• 72 mil registros aprox com 55 features  
+• Features utilizadas: Ano, mês, quantidade e comissão  
 
 ### 📊 Análise Descritiva dos Dados
+Além das analises realizadas abaixo, foram considerados o gráfico de decomposição sazonal e heatmap apresentado acima. 
+
+#### Identificação e Análise dos Outliers
+![Detecção de outliers](https://github.com/user-attachments/assets/573da1b4-eada-46f2-afeb-db8a2549ae84)
+
+#### Distribuição de Vendas
+![Distribuição de vendas](https://github.com/user-attachments/assets/5902a809-7693-4c5f-b5af-9151f8b148a6)
+
+#### Teste de Dickey Fuller
+
+• Estatística ADF: -5.5592630877642994  
+• p-valor: 1.555205009293298e-06  
+• Usou: 0 lags  
+• Número de observações: 76  
+
+**Valores Críticos:**  
+  • 1%: -3.5195  
+  • 5%: -2.9004  
+  • 10%: -2.5875  
+
+##### A série é estacionária (rejeita H0)
 
 ### ⚙️ Pré-processamento dos Dados
+• Todas as etapas foram realizadas na linguagem 🐍 Python  
+• Padronização dos metadados: Remoção de espaços em branco nos títulos das colunas e ajuste de nomenclaturas.  
+• Seleção de escopo: Aplicação de filtros para restringir a base ao tipo de produto em análise e à região geográfica de interesse, neste caso, o mercado doméstico (Brasil).  
+• Filtragem por faturamento: Exclusão de registros que não representavam faturamento efetivo, considerando apenas dados consolidados de vendas.  
+• Tratamento de valores ausentes: Avaliação pontual das variáveis, com aplicação de exclusão, imputação ou manutenção controlada dos dados faltantes, conforme a relevância e impacto  nas análises. Foram identificados e tratados 17 valores ausentes.  
+• Criação de variável temporal: Geração de uma coluna de data consolidada (formato ano-mês), uma vez que os dados originais estavam separados em colunas distintas.  
+• Agregação temporal: Agrupamento das vendas e das variáveis exógenas por período mensal, atendendo à granularidade estabelecida para o estudo.  
+• Divisão dos dados: Separação temporal da base em conjunto de treino (60%), validação (20%) e teste (20%), respeitando a ordem cronológica, conforme as boas práticas recomendadas por Hyndman e Athanasopoulos.  
+• Transformações: Aplicação de técnicas de normalização e padronização dos dados, além da transformação logarítmica nas variáveis exógenas, com o intuito de reduzir variância e suavizar a série temporal, conforme sugerido por Han, Kamber e Pei  
 
 ### 🧪 Metodologia Experimental
+• Utilização de modelos da família ARIMA e SVR (Support Vector Regression).  
+• Experimento com e sem variáveis exógenas.  
+• Testes com normalização escalar e logaritmica.  
+• Testes com parâmetros automáticos e manuais.  
+#### Gráficos
+
+![Arima automatico](https://github.com/user-attachments/assets/2b9ad0fc-adc9-4c1f-b780-c80752424634)  
+
+![Arima com ordem manual](https://github.com/user-attachments/assets/78137a46-4e31-4793-9adc-0103d5a78799)  
+
+![Sarimax scaled](https://github.com/user-attachments/assets/037f52d2-eade-41e9-8277-8332335105a5)  
+
+![Sarimax residuos treino scaled ](https://github.com/user-attachments/assets/8e7d0048-342f-4740-ae51-fb5e02fa960f)  
+
+![Sarimax residuos treino + validacao scaled](https://github.com/user-attachments/assets/86f4b203-d6dc-4dc8-abe6-41a01aa8c3ca)  
+
+![Sarimax log](https://github.com/user-attachments/assets/00d35ecd-6a09-49f1-81b6-03ecde02eb80)  
+
+![Sarimax residuos treino log ](https://github.com/user-attachments/assets/dabb9c7e-e9e0-464e-b0db-29ea7c73c8a9)  
+
+![Sarimax residuos treino + validacao log](https://github.com/user-attachments/assets/183f53c1-8024-45a3-bbfa-4bbe169379e3)  
+
+![svr passo 1 sem exogena](https://github.com/user-attachments/assets/b5af0e28-0882-4d36-8721-9da7a72769c1)  
+
+![svr passo 2 sem exogena](https://github.com/user-attachments/assets/e0711257-5275-48cd-9084-64c4bbbe98a7)  
+
+![svr passo 3 sem exogena](https://github.com/user-attachments/assets/dfc1918f-d7f2-4ca1-8a5e-edc13c8f5fb8)
+
+![svr passo 1 com exogena](https://github.com/user-attachments/assets/9e646672-3c9f-4411-bdab-22227a7449be)
+
+![svr passo 2 com exogena](https://github.com/user-attachments/assets/ac03409c-cc3a-4c11-b618-6bd89ad8148e)  
+ 
+![svr passo 3 com exogena](https://github.com/user-attachments/assets/7ac3c6c2-b860-4d94-9753-3a5a07737e50)
+
+
+
+
+
+
+
 
 ## 🧐 Análise e Discussão dos Resultados
 
