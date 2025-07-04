@@ -92,15 +92,15 @@ Além das analises realizadas abaixo, foram considerados o gráfico de decomposi
 ##### A série é estacionária (rejeita H0)
 
 ### ⚙️ Pré-processamento dos Dados
-• Todas as etapas foram realizadas na linguagem 🐍 Python  
-• Padronização dos metadados: Remoção de espaços em branco nos títulos das colunas e ajuste de nomenclaturas.  
-• Seleção de escopo: Aplicação de filtros para restringir a base ao tipo de produto em análise e à região geográfica de interesse, neste caso, o mercado doméstico (Brasil).  
-• Filtragem por faturamento: Exclusão de registros que não representavam faturamento efetivo, considerando apenas dados consolidados de vendas.  
-• Tratamento de valores ausentes: Avaliação pontual das variáveis, com aplicação de exclusão, imputação ou manutenção controlada dos dados faltantes, conforme a relevância e impacto  nas análises. Foram identificados e tratados 17 valores ausentes.  
-• Criação de variável temporal: Geração de uma coluna de data consolidada (formato ano-mês), uma vez que os dados originais estavam separados em colunas distintas.  
-• Agregação temporal: Agrupamento das vendas e das variáveis exógenas por período mensal, atendendo à granularidade estabelecida para o estudo.  
-• Divisão dos dados: Separação temporal da base em conjunto de treino (60%), validação (20%) e teste (20%), respeitando a ordem cronológica, conforme as boas práticas recomendadas por Hyndman e Athanasopoulos.  
-• Transformações: Aplicação de técnicas de normalização e padronização dos dados, além da transformação logarítmica nas variáveis exógenas, com o intuito de reduzir variância e suavizar a série temporal, conforme sugerido por Han, Kamber e Pei  
+##### Todas as etapas foram realizadas na linguagem 🐍 Python  
+##### Padronização dos metadados: Remoção de espaços em branco nos títulos das colunas e ajuste de nomenclaturas.  
+##### Seleção de escopo: Aplicação de filtros para restringir a base ao tipo de produto em análise e à região geográfica de interesse, neste caso, o mercado doméstico (Brasil).  
+##### Filtragem por faturamento: Exclusão de registros que não representavam faturamento efetivo, considerando apenas dados consolidados de vendas.  
+##### Tratamento de valores ausentes: Avaliação pontual das variáveis, com aplicação de exclusão, imputação ou manutenção controlada dos dados faltantes, conforme a relevância e impacto  nas análises. Foram identificados e tratados 17 valores ausentes.  
+##### Criação de variável temporal: Geração de uma coluna de data consolidada (formato ano-mês), uma vez que os dados originais estavam separados em colunas distintas.  
+##### Agregação temporal: Agrupamento das vendas e das variáveis exógenas por período mensal, atendendo à granularidade estabelecida para o estudo.  
+##### Divisão dos dados: Separação temporal da base em conjunto de treino (60%), validação (20%) e teste (20%), respeitando a ordem cronológica, conforme as boas práticas recomendadas por Hyndman e Athanasopoulos.  
+##### Transformações: Aplicação de técnicas de normalização e padronização dos dados, além da transformação logarítmica nas variáveis exógenas, com o intuito de reduzir variância e suavizar a série temporal, conforme sugerido por Han, Kamber e Pei  
 
 ### 🧪 Metodologia Experimental
 • Utilização de modelos da família ARIMA e SVR (Support Vector Regression).  
@@ -109,9 +109,14 @@ Além das analises realizadas abaixo, foram considerados o gráfico de decomposi
 • Testes com parâmetros automáticos e manuais.  
 #### Gráficos
 
+##### Teste inicial com ARIMA - AutoRegressive Integrated Moving Average (Média Móvel Integrada Autorregressiva)
 ![Arima automatico](https://github.com/user-attachments/assets/2b9ad0fc-adc9-4c1f-b780-c80752424634)  
 
+##### Teste com ARIMA utilizando parâmetros manuais
 ![Arima com ordem manual](https://github.com/user-attachments/assets/78137a46-4e31-4793-9adc-0103d5a78799)  
+
+##### Teste com SARIMAX - AutoRegressive Integrated Moving Average + Sazonal e Exógena 
+###### Normalização Scaled
 
 ![Sarimax scaled](https://github.com/user-attachments/assets/037f52d2-eade-41e9-8277-8332335105a5)  
 
@@ -119,11 +124,22 @@ Além das analises realizadas abaixo, foram considerados o gráfico de decomposi
 
 ![Sarimax residuos treino + validacao scaled](https://github.com/user-attachments/assets/86f4b203-d6dc-4dc8-abe6-41a01aa8c3ca)  
 
+##### Teste com SARIMAX - AutoRegressive Integrated Moving Average + Sazonal e Exógena 
+###### Normalização Logaritmica
+
 ![Sarimax log](https://github.com/user-attachments/assets/00d35ecd-6a09-49f1-81b6-03ecde02eb80)  
 
 ![Sarimax residuos treino log ](https://github.com/user-attachments/assets/dabb9c7e-e9e0-464e-b0db-29ea7c73c8a9)  
 
 ![Sarimax residuos treino + validacao log](https://github.com/user-attachments/assets/183f53c1-8024-45a3-bbfa-4bbe169379e3)  
+
+##### Teste com SARIMAX - AutoRegressive Integrated Moving Average + Sazonal e Exógena (Utilizando R)
+
+![Sarimax com R Treino](https://github.com/user-attachments/assets/c5921718-3a2e-4371-8936-c5a242952309)
+
+![Sarimax com R Teste](https://github.com/user-attachments/assets/9d20b90d-faca-44e0-8496-97d4b7896fc3)
+
+##### Teste com SVR - Support Vector Regression (SVR) - Machine learning
 
 ![svr passo 1 sem exogena](https://github.com/user-attachments/assets/b5af0e28-0882-4d36-8721-9da7a72769c1)  
 
@@ -137,18 +153,16 @@ Além das analises realizadas abaixo, foram considerados o gráfico de decomposi
  
 ![svr passo 3 com exogena](https://github.com/user-attachments/assets/7ac3c6c2-b860-4d94-9753-3a5a07737e50)
 
-
-
-
-
-
-
-
 ## 🧐 Análise e Discussão dos Resultados
 
 ### 📈 Resultados
+<img width="347" alt="Captura de Tela 2025-07-04 às 17 05 24" src="https://github.com/user-attachments/assets/aa54c0a8-7bc9-42b0-bafb-c4b2844d2a43" />
 
 ### 💭 Discussão
 
 ## 🚀 Conclusões e Trabalhos Futuros
+#### Exploração de outras variáveis exógenas, pois além da comissão, é possível incluir outros fatores. Uma abordagem detalhada junto ao departamento que desenvolve a base de dados.
+#### Testar com os dados de diferentes regiões geográficas, ampliando a robustez e aplicabilidade do modelo.
+#### Analisar e aplicar os modelos por diferentes tipos de séries temporais, agregando produto e classificando qual tem maior rentabilidade e volume de vendas.
+
 
