@@ -10,12 +10,20 @@ def detectar_outliers(df, coluna):
     outliers = df[(df[coluna] < limite_inf) | (df[coluna] > limite_sup)]
     return outliers, limite_inf, limite_sup
 
+
 def plot_outliers(df, coluna, limite_inf, limite_sup):
-    plt.figure(figsize=(10, 6))
-    sns.boxplot(data=df, x=coluna, color='skyblue')
+    plt.figure(figsize=(12, 7))
+    
+    # Caixa mais estilizada
+    sns.boxplot(data=df, x=coluna, color='#42a5f5', linewidth=2, fliersize=5)
+    
     plt.axvline(limite_inf, color='red', linestyle='--', label='Limite Inferior')
     plt.axvline(limite_sup, color='red', linestyle='--', label='Limite Superior')
-    plt.title(f'Detecção de Outliers - {coluna}')
+    
+    plt.title(f'🚨 Detecção de Outliers - {coluna}', fontsize=16, fontweight='bold')
+    plt.xlabel(coluna, fontsize=12)
+    
     plt.legend()
-    plt.grid(True)
+    plt.grid(True, linestyle='--', alpha=0.3)
+    plt.tight_layout()
     plt.show()
