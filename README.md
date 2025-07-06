@@ -135,9 +135,12 @@ Além das analises realizadas abaixo, foram considerados o gráfico de decomposi
 
 ##### Teste com SARIMAX - AutoRegressive Integrated Moving Average + Sazonal e Exógena (Utilizando R)
 
-![Sarimax com R Treino](https://github.com/user-attachments/assets/c5921718-3a2e-4371-8936-c5a242952309)
+![Sarimax R Treino - 1 exogLog - 4-1-4](https://github.com/user-attachments/assets/d816ff78-d683-4638-90e7-913870257a9f)
 
-![Sarimax com R Teste](https://github.com/user-attachments/assets/9d20b90d-faca-44e0-8496-97d4b7896fc3)
+![Sarimax R Teste - 1 exogLog - 4-1-4](https://github.com/user-attachments/assets/c33355a6-0cac-4614-a3b2-c039b4b84532)
+
+<img width="863" alt="Captura de Tela 2025-07-06 às 14 13 31" src="https://github.com/user-attachments/assets/99d9ecb6-ddd3-4c29-9cd2-857afeb66f70" />
+
 
 ##### Teste com SVR - Support Vector Regression (SVR) - Machine learning
 
