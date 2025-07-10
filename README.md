@@ -46,6 +46,7 @@ Aplicação de métodos e técnicas para identificar padrões, tendências e rel
 Um bom ponto de partida para a modelagem dos dados.
 ![Decomposição sazonal](https://github.com/user-attachments/assets/819e7cbd-6d2e-43c9-bf8d-7e9b017bdb57)
 
+
 🔥 No mapa de calor é possível avaliar a correlação entre as variáveis numéricas e testar possíveis variáveis exógenas a serem utilizadas na modelagem preditiva
 ![Heatmap](https://github.com/user-attachments/assets/749f605f-c594-4a01-89cf-8ef36b1008a6)
 
@@ -76,6 +77,10 @@ Além das analises realizadas abaixo, foram considerados o gráfico de decomposi
 
 #### Distribuição de Vendas
 ![Distribuição de vendas](https://github.com/user-attachments/assets/5902a809-7693-4c5f-b5af-9151f8b148a6)
+
+#### Autocorrelação
+
+<img width="983" height="784" alt="autocorrelacao" src="https://github.com/user-attachments/assets/92754d60-71fd-4e29-bcb1-8f673f4a3ee0" />
 
 #### Teste de Dickey Fuller
 
