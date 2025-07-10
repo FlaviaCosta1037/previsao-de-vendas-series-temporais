@@ -112,7 +112,11 @@ Além das analises realizadas abaixo, foram considerados o gráfico de decomposi
 ##### Teste inicial com ARIMA - AutoRegressive Integrated Moving Average (Média Móvel Integrada Autorregressiva)
 ![Arima automatico](https://github.com/user-attachments/assets/2b9ad0fc-adc9-4c1f-b780-c80752424634)  
 
-##### Teste com ARIMA utilizando parâmetros manuais
+##### Teste com ARIMA utilizando parâmetros manuais (p, d, q) 
+AutoRegressivo (AR) - p Número de termos defasados da própria série (lags).  
+Diferença (I)       - d Quantas vezes os dados devem ser diferenciados para se tornarem estacionários.  
+Média Móvel (MA)    - q Número de termos defasados do erro (resíduo)  
+
 ![Arima com ordem manual](https://github.com/user-attachments/assets/78137a46-4e31-4793-9adc-0103d5a78799)  
 
 ##### Teste com SARIMAX - AutoRegressive Integrated Moving Average + Sazonal e Exógena 
