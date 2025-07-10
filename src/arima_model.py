@@ -9,15 +9,6 @@ import warnings
 # Ignorar Warnings
 warnings.filterwarnings('ignore')
 
-from pmdarima import auto_arima
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.metrics import mean_absolute_error, mean_squared_error, mean_absolute_percentage_error
-from src.divisao_treino_teste_validacao import dividir_modelagem
-import warnings
-warnings.filterwarnings('ignore')
-
-
 def modelar_arima_automatico(df_agrupado):
     """
     Modelagem ARIMA automática com auto_arima.
@@ -128,16 +119,6 @@ def modelar_arima_automatico(df_agrupado):
         "y_test_pred": y_test_pred,
         "y_future_pred": future_pred
     }
-
-
-    
-
-from statsmodels.tsa.arima.model import ARIMA
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.metrics import mean_absolute_error, mean_squared_error, mean_absolute_percentage_error
-from src.divisao_treino_teste_validacao import dividir_modelagem
-
 
 def modelar_arima_manual(df_agrupado, order):
     """
