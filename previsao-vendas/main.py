@@ -42,8 +42,9 @@ async def prever(file: UploadFile = File(...)):
         resultado = modelar_sarimax(df_agrupado, auto=True, exog_type='log')
 
         previsao = np.floor(resultado["y_future_pred"]).tolist()
+        grafico = resultado["grafico_base64"]
 
-        return {"previsao": previsao}
+        return {"previsao": previsao, "grafico": grafico}
 
     except Exception as e:
         return {"erro": str(e)}

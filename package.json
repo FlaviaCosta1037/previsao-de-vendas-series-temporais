@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@chakra-ui/react": "^3.22.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.23.3",
+    "recharts": "^3.1.0"
+  }
+}

@@ -6,6 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import io
+import base64
 import scipy.stats as stats
 from src.divisao_treino_teste_validacao import dividir_exog, dividir_modelagem
 
@@ -90,7 +92,6 @@ def modelar_sarimax(df_agrupado, order=(4,1,4), seasonal_order=(0,0,0,0), auto=T
     plt.subplot(1, 2, 2)
     stats.probplot(model_fit.resid, dist="norm", plot=plt)
     plt.title('QQ-Plot Resíduos - Treino')
-    plt.show()
 
     # -------------------
     # Reajustando com Treino + Validação
@@ -128,7 +129,6 @@ def modelar_sarimax(df_agrupado, order=(4,1,4), seasonal_order=(0,0,0,0), auto=T
     plt.subplot(1, 2, 2)
     stats.probplot(residuos_final, dist="norm", plot=plt)
     plt.title('QQ-Plot dos Resíduos - Treino + Validação')
-    plt.show()
 
     # -------------------
     # Plot Final Previsões
@@ -146,8 +146,14 @@ def modelar_sarimax(df_agrupado, order=(4,1,4), seasonal_order=(0,0,0,0), auto=T
     plt.title('SARIMAX - Previsão Treino/Validação/Teste')
     plt.grid(True)
     plt.legend()
-    plt.show()
-
+    
+    # Salva gráfico em buffer
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    plt.close()
+    buf.seek(0)
+    
+    img_base64 = base64.b64encode(buf.read()).decode('utf-8')
     # -------------------
     # Previsão Próximos 3 Meses
     # -------------------
@@ -168,11 +174,14 @@ def modelar_sarimax(df_agrupado, order=(4,1,4), seasonal_order=(0,0,0,0), auto=T
     # Retorno dos Resultados
     # -------------------
     return {
+        # ... tudo que já retornava ...
         "order": order,
         "seasonal_order": seasonal_order,
         "mape_val": mape_val,
         "mape_test": mape_test,
         "y_val_pred": y_val_pred,
         "y_test_pred": y_test_pred,
-        "y_future_pred": y_future_pred
+        "y_future_pred": y_future_pred,
+        "grafico_base64": img_base64 
     }
+
